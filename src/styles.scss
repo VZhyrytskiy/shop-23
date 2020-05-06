@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: Arial, Helvetica, sans-serif;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.root {
+  display: block;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+h2{
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 36px;
+  text-transform: uppercase;
+}
+
+h3{
+  font-size: 18px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+p{
+  color: #5f5e5e;
+  font-size: 16px;
+  font-weight: 400;
+  margin:15px 0;
+  text-align: justify;
+}
+
+body {
+  color: #5f5e5e;
+}
+
+button {
+	color: #fff;
+	background: rgb(22, 95, 168);
+	padding: 11px 20px;
+  border:1px solid rgb(22, 95, 168);
+  border-radius: 3px;
+}
+button:hover {
+	background: #fff;
+	color: rgb(22, 95, 168);
+}
+
+input, select, button, textarea{outline: none;}

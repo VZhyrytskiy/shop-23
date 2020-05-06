@@ -1,0 +1,9 @@
+.product {
+  margin-bottom: 16px;
+
+  &.is-not-available {
+    p, h3 {
+      color: #5f5e5ea6;
+    }
+  }
+}
