@@ -28,6 +28,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Branches and commits naming:
 
-Branch name: feature/${feature-name}
-Commmit name: [feature/task-${number}]: Commit message
-PR name: [feature/task-${number}]: PR message
+Branch name: feature/task${number}_${sub-tasks}  
+Commmit name: [feature/task${number}_${sub-tasks}]: Commit message  
+PR name: [feature/task${number}_${sub-tasks}]: PR message  
