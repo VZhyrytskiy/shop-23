@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 
-import { Categories } from '../models/categories';
-import { MacDevices, IpadDevices, IphoneDevices } from '../models/products';
-import { Product } from '../models/product';
+import { Categories } from '../models/categories.model';
+import { MacDevices, IpadDevices, IphoneDevices } from '../models/products.model';
+import { Product } from '../models/product.model';
 
 const products = [
   {

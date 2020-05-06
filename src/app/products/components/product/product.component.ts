@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { Product } from '../../models/product';
+import { Product } from '../../models/product.model';
 
 @Component({
   selector: 'app-product',
@@ -15,7 +15,7 @@ export class ProductComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onBy() {
+  onBuy() {
     console.log(`"${this.product.name}" was added to Cart!`);
   }
 
