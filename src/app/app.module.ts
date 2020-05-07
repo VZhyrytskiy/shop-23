@@ -5,18 +5,23 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductComponent } from './products/components/product/product.component';
 import { ProductsListComponent } from './products/components/products-list/products-list.component';
+import { CartComponent } from './cart/components/cart.component';
+import { CartService } from './cart/services/cart.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     ProductComponent,
-    ProductsListComponent
+    ProductsListComponent,
+    CartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    CartService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
