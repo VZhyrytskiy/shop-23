@@ -1,7 +1,7 @@
 <div class="cart">
     <h4>Cart</h4>
-    <div *ngIf="purchasedGoods; else emptyCart"> 
-        <div *ngFor="let product of purchasedGoods">
+    <div *ngIf="purchasedProducts.length; else emptyCart"> 
+        <div *ngFor="let product of purchasedProducts">
             {{product.name}}
         </div>
     </div>
