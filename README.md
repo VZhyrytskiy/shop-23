@@ -31,3 +31,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Branch name: feature/task${number}_${sub-tasks}  
 Commmit name: [feature/task${number}_${sub-tasks}]: Commit message  
 PR name: [feature/task${number}_${sub-tasks}]: PR message  
+
+Naming-types:
+- feature;
+- bugfix;
+- improvement;
