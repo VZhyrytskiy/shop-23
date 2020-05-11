@@ -50,7 +50,13 @@ button {
   border:1px solid rgb(22, 95, 168);
   border-radius: 3px;
 }
-button:hover {
+
+button[disabled] {
+  background: silver;
+  border:none;
+}
+
+button:not([disabled]):hover {
 	background: #fff;
 	color: rgb(22, 95, 168);
 }
