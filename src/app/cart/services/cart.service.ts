@@ -7,7 +7,7 @@ import { Product } from 'src/app/products/models/product.model';
 })
 
 export class CartService{
-  purchasedProducts: Array<Product> = [];
+  private purchasedProducts: Array<Product> = [];
 
   constructor() {}
 
