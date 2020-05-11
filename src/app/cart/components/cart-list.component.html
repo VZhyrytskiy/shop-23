@@ -1,0 +1,10 @@
+<div class="cart">
+    <h4>Cart</h4>
+    <div *ngIf="cart.purchasedProducts.length; else emptyCart"> 
+        <div *ngFor="let product of cart.purchasedProducts">
+            {{product.name}}
+        </div>
+    </div>
+    <div> Total price = {{cart.totalPrice}} ({{cart.totalProducts}} items) </div>
+    <ng-template #emptyCart>Cart is empty</ng-template>
+</div>>
