@@ -1,9 +1,11 @@
 <div class="cart">
-    <h4>Cart</h4>
-    <div *ngIf="purchasedProducts.length; else emptyCart"> 
-        <div *ngFor="let product of purchasedProducts">
-            {{product.name}}
-        </div>
+  <h4>Cart</h4>
+  <div *ngIf="purchasedProducts.length; else emptyCart"> 
+    <div *ngFor="let product of purchasedProducts">
+      {{product.name}}
+      ({{product.quantity}})
+      <button class="remove" (click)="removeFromCart(product)">X</button>
     </div>
-    <ng-template #emptyCart>Cart is empty</ng-template>
+  </div>
+  <ng-template #emptyCart>Cart is empty</ng-template>
 </div>>

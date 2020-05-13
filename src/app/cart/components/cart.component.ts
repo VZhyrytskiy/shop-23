@@ -1,20 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
-import { Product } from 'src/app/products/models/product.model';
+import { CartItem } from '../models/cart-item.model';
 import { CartService } from '../services/cart.service';
+
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss']
 })
-export class CartComponent implements OnInit {
-  purchasedProducts: Array<Product>;
+export class CartComponent {
+  constructor(private cartService: CartService) {}
 
-  constructor(private cartService: CartService) { }
+  get purchasedProducts(): Array<CartItem> {
+    return this.cartService.getPurchasedProducts();
+  }
 
-  ngOnInit(): void {
-    this.purchasedProducts = this.cartService.getPurchasedProducts();
+  removeFromCart(product: CartItem) {
+    this.cartService.removeFromCart(product);
   }
 
 }

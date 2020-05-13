@@ -11,7 +11,7 @@ export class ProductComponent implements OnInit {
   @Input() product: Product;
 
   @Output()
-  buy: EventEmitter<Product> = new EventEmitter<Product>()
+  buy: EventEmitter<Product> = new EventEmitter<Product>();
 
   constructor() {}
 
