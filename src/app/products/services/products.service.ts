@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { Categories } from '../models/categories.model';
-import { MacDevices, IpadDevices, IphoneDevices } from '../models/products.model';
+import { Categories } from '../enums/categories';
+import { MacDevices, IpadDevices, IphoneDevices } from '../enums/products';
 import { Product } from '../models/product.model';
 
 const products: Array<Product> = [

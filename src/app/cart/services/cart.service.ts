@@ -1,19 +1,14 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { CartItem } from '../models/cart-item.model';
 
 @Injectable({
   providedIn: 'root'
 })
-
 export class CartService {
   purchasedProducts: Array<CartItem> = [];
 
   constructor() {}
-
-  // ngOnInit() {
-
-  // }
 
   getPurchasedProducts() {
     return this.purchasedProducts;
@@ -34,5 +29,4 @@ export class CartService {
 
     this.purchasedProducts = this.purchasedProducts.filter(item => item.id !== product.id);
   }
-  // Есть добавление, есть увеличение количества, есть удаление, логично добавить уменьшение количества.
 }

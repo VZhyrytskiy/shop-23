@@ -7,4 +7,3 @@ import { CommonModule } from '@angular/common';
   exports: []
 })
 export class SharedModule {}
-// Для чего этот модуль, если он ничего не содержит?
