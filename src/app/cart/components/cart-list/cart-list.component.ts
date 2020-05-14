@@ -10,7 +10,7 @@ import { Cart } from 'src/app/cart/models/cart.model';
 })
 
 export class CartListComponent implements OnInit {
-  public cart: Cart = new Cart();
+  public cart: Cart;
 
   constructor(private cartService: CartService) { }
 

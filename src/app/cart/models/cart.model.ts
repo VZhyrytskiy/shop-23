@@ -1,7 +1,7 @@
-import { Product } from 'src/app/products/models/product.model';
+import { CartItem } from './cart-item.model';
 
-export class Cart {
-    purchasedProducts: Array<Product>;
+  export interface Cart {
+    purchasedProducts: Array<CartItem>;
     totalProducts: number;
     totalPrice: number;
 }
