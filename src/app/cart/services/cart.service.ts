@@ -31,13 +31,13 @@ export class CartService{
   }
 
   remoreProductFromCart(product: Product){
-    //console.log(`Product ${product.name} was deleted from cart`);
+    // console.log(`Product ${product.name} was deleted from cart`);
 
     this.currentCart.purchasedProducts = this.currentCart.purchasedProducts.filter(item => item.id !== product.id);
   }
 
   clearCart(){
-    this.currentCart.purchasedProducts.splice(0, this.currentCart.purchasedProducts.length);
+    this.currentCart.purchasedProducts = [];
     this.currentCart.totalPrice = 0;
     this.currentCart.totalProducts = 0;
   }
