@@ -11,13 +11,29 @@ import { CartItem } from '../../models/cart-item.model';
 
 export class CartListComponent implements OnInit {
 
-  get purchasedProducts(): Array<CartItem> {
-    return this.cartService.getPurchasedProducts();
+  get CartProducts(): Array<CartItem> {
+    return this.cartService.getCartProducts();
+  }
+
+  get TotalSum() : number {
+    return this.cartService.getTotalSum();
+  }
+
+  get TotalQuantity() : number {
+    return this.cartService.getTotalQuantity();
   }
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
+  }
+
+  increaseQuantityOfProduct(product: CartItem){
+    this.cartService.increaseQuantity(product);
+  }
+
+  decreaseQuantityOfProduct(product: CartItem){
+    this.cartService.decreaseQuantity(product);
   }
 
   removeFromCart(product: CartItem) {
