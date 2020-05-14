@@ -11,6 +11,5 @@ import { ProductsService } from './services/products.service';
     ProductsListComponent
   ],
   exports: [ProductsListComponent],
-  providers: [ProductsService]
 })
 export class ProductsModule {}
