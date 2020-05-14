@@ -6,14 +6,14 @@ import { CartItem } from '../models/cart-item.model';
   providedIn: 'root'
 })
 
-export class CartService implements OnInit {
+export class CartService {
   purchasedProducts: Array<CartItem> = [];
 
   constructor() {}
 
-  ngOnInit() {
-    
-  }
+  // ngOnInit() {
+
+  // }
 
   getPurchasedProducts() {
     return this.purchasedProducts;
@@ -34,4 +34,5 @@ export class CartService implements OnInit {
 
     this.purchasedProducts = this.purchasedProducts.filter(item => item.id !== product.id);
   }
+  // Есть добавление, есть увеличение количества, есть удаление, логично добавить уменьшение количества.
 }
