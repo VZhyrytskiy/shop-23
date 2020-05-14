@@ -10,35 +10,90 @@ import { Cart } from '../models/cart.model';
 export class CartService{
   private currentCart: Cart;
 
-  constructor() { }
+  constructor() {
+    this.currentCart = {
+      cartProducts: [],
+      totalSum: 0,
+      totalQuantity: 0
+    };
+   }
 
-  getPurchasedProducts() {
-    return this.currentCart.purchasedProducts;
+  getCartProducts() {
+    return this.currentCart.cartProducts;
+  }
+
+  getTotalSum(){
+    return this.currentCart.totalSum;
+  }
+
+  getTotalQuantity(){
+    return this.currentCart.totalQuantity;
   }
 
   getCartInfo(){
     return this.currentCart;
   }
 
-  addProductToCart(product: Product) {
-    const productIndex = this.currentCart.purchasedProducts.findIndex(item => item.id === product.id);
-
+  increaseQuantity(product: Product){
+    const productIndex = this.getProductIndex(product);
     if (productIndex !== -1) {
-      this.currentCart.purchasedProducts[productIndex].quantity += 1;
-    } else {
-      this.currentCart.purchasedProducts.push({ ...product, quantity: 1 });
+      this.currentCart.cartProducts[productIndex].quantity ++;
     }
+    this.updateCartData();
+  }
+
+  decreaseQuantity(product: Product){
+    const productIndex = this.getProductIndex(product);
+    if (productIndex !== -1) {
+      if (this.currentCart.cartProducts[productIndex].quantity !== 0){
+        this.currentCart.cartProducts[productIndex].quantity --;
+      }
+    }
+    this.updateCartData();
+  }
+
+  addProductToCart(product: Product) {
+    const productIndex = this.getProductIndex(product);
+    if ( productIndex !== -1) {
+      this.currentCart.cartProducts[productIndex].quantity += 1;
+    } else {
+      this.currentCart.cartProducts.push({ ...product, quantity: 1 });
+    }
+    this.updateCartData();
+  }
+
+  addProductsToCart(product: Product, quantity: number) {
+    const productIndex = this.getProductIndex(product);
+    if ( productIndex !== -1) {
+      this.currentCart.cartProducts[productIndex].quantity += quantity;
+    } else {
+      this.currentCart.cartProducts.push({ ...product, quantity: quantity });
+    }
+    this.updateCartData();
   }
 
   remoreProductFromCart(product: Product){
     // console.log(`Product ${product.name} was deleted from cart`);
-
-    this.currentCart.purchasedProducts = this.currentCart.purchasedProducts.filter(item => item.id !== product.id);
+    this.currentCart.cartProducts = this.currentCart.cartProducts.filter(item => item.id !== product.id);
+    this.updateCartData();
   }
 
-  clearCart(){
-    this.currentCart.purchasedProducts = [];
-    this.currentCart.totalPrice = 0;
-    this.currentCart.totalProducts = 0;
+  removeAllProducts(){
+    this.currentCart.cartProducts = [];
+    this.currentCart.totalSum = 0;
+    this.currentCart.totalQuantity = 0;
+  }
+
+  private updateCartData(){
+    this.currentCart.totalQuantity = 0;
+    this.currentCart.totalSum = 0;
+    this.currentCart.cartProducts.forEach( item => {
+      this.currentCart.totalQuantity += item.quantity;
+      this.currentCart.totalSum += item.quantity * item.price
+    });
+  }
+
+  private getProductIndex(product: Product): number{
+    return this.currentCart.cartProducts.findIndex(item => item.id === product.id);
   }
 }
