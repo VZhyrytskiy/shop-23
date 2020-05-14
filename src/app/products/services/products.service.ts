@@ -4,7 +4,7 @@ import { Categories } from '../models/categories.model';
 import { MacDevices, IpadDevices, IphoneDevices } from '../models/products.model';
 import { Product } from '../models/product.model';
 
-const products = [
+const products: Array<Product> = [
   {
     id: 1,
     name: MacDevices.MackBookAir,

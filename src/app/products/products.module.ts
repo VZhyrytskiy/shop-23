@@ -9,6 +9,6 @@ import { ProductsService } from './services/products.service';
   imports: [CommonModule],
   declarations: [ProductComponent, ProductsListComponent],
   exports: [ProductsListComponent],
-  providers: [ProductsService]
+  // providers: [ProductsService] // сервис уже зарегистриован с помощью своего декоратора
 })
 export class ProductsModule {}

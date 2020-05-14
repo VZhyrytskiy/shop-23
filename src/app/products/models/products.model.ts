@@ -16,3 +16,4 @@ export enum IphoneDevices {
   Iphone10 = 'iPhone 10',
   Iphone11 = 'iPhone 11'
 }
+// Не очень удачное название файла
