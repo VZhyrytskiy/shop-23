@@ -6,6 +6,7 @@ import { Product } from '../models/product.model';
 
 const products = [
   {
+    id: 1,
     name: MacDevices.MackBookAir,
     description: `Description for ${MacDevices.MackBookAir}`,
     price: 700,
@@ -13,6 +14,7 @@ const products = [
     isAvailable: true
   },
   {
+    id: 2,
     name: IphoneDevices.Iphone11,
     description: `Description for ${IphoneDevices.Iphone11}`,
     price: 1000,
@@ -20,6 +22,7 @@ const products = [
     isAvailable: true
   },
   {
+    id: 3,
     name: IpadDevices.IpadMini,
     description: `Description for ${IpadDevices.IpadMini}`,
     price: 800,
