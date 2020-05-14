@@ -8,7 +8,7 @@ import { CartItem } from '../models/cart-item.model';
   providedIn: 'root'
 })
 
-export class CartService implements OnInit {
+export class CartService{
   purchasedProducts: Array<CartItem> = [];
   private currentCart: Cart = new Cart();
 
@@ -16,10 +16,6 @@ export class CartService implements OnInit {
     this.currentCart.purchasedProducts = [];
     this.currentCart.totalPrice = 0;
     this.currentCart.totalProducts = 0;
-  }
-
-  ngOnInit() {
-    
   }
 
   getPurchasedProducts() {
@@ -50,7 +46,7 @@ export class CartService implements OnInit {
     this.currentCart.totalPrice = 0;
     this.currentCart.totalProducts = 0;
   }
-  
+
   addToCart(product: CartItem) {
     const productIndex = this.purchasedProducts.findIndex(item => item.id === product.id);
 
