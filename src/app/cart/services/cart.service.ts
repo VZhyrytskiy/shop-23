@@ -1,23 +1,16 @@
 import { Injectable, OnInit } from '@angular/core';
 
-<<<<<<< HEAD
 import { Product } from 'src/app/products/models/product.model';
 import { Cart } from '../models/cart.model';
-=======
 import { CartItem } from '../models/cart-item.model';
->>>>>>> a99e55538971a3cdf34a973d71fb27339583643d
 
 @Injectable({
   providedIn: 'root'
 })
 
-<<<<<<< HEAD
-export class CartService{
-  private currentCart: Cart = new Cart();
-=======
 export class CartService implements OnInit {
   purchasedProducts: Array<CartItem> = [];
->>>>>>> a99e55538971a3cdf34a973d71fb27339583643d
+  private currentCart: Cart = new Cart();
 
   constructor() {
     this.currentCart.purchasedProducts = [];
@@ -26,7 +19,7 @@ export class CartService implements OnInit {
   }
 
   ngOnInit() {
-
+    
   }
 
   getPurchasedProducts() {
@@ -51,12 +44,13 @@ export class CartService implements OnInit {
     this.currentCart.totalProducts = this.currentCart.purchasedProducts.length;
   }
 
-<<<<<<< HEAD
+
   clearCart(){
     this.currentCart.purchasedProducts.splice(0, this.currentCart.purchasedProducts.length);
     this.currentCart.totalPrice = 0;
     this.currentCart.totalProducts = 0;
-=======
+  }
+  
   addToCart(product: CartItem) {
     const productIndex = this.purchasedProducts.findIndex(item => item.id === product.id);
 
@@ -71,6 +65,6 @@ export class CartService implements OnInit {
     console.log(`Product ${product.name} was deleted from cart`);
 
     this.purchasedProducts = this.purchasedProducts.filter(item => item.id !== product.id);
->>>>>>> a99e55538971a3cdf34a973d71fb27339583643d
+
   }
 }
