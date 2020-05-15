@@ -22,5 +22,4 @@ export class ProductComponent implements OnInit {
 
     this.buy.emit(this.product);
   }
-
 }
