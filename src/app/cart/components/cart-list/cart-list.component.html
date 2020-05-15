@@ -5,6 +5,7 @@
 			*ngFor="let cartProduct of CartProducts"
 			[item] = "cartProduct"
 			(incItemQuantity) = "increaseQuantityOfProduct($event)"
+			(addItemQuantity) = "addQuantityOfProduct($event)"
 			(decItemQuantity) = "decreaseQuantityOfProduct($event)"
 			(removeItem) = "removeFromCart($event)"
 		></app-cart-item>

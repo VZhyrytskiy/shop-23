@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { CartItem } from '../../models/cart-item.model';
 
@@ -7,28 +7,24 @@ import { CartItem } from '../../models/cart-item.model';
   templateUrl: './cart-item.component.html',
   styleUrls: ['./cart-item.component.scss']
 })
-export class CartItemComponent implements OnInit {
+export class CartItemComponent {
   @Input() item: CartItem;
 
   @Output() incItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
-  @Output() gainItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+  @Output() addItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
   @Output() decItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
   @Output() removeItem: EventEmitter<CartItem> = new EventEmitter<CartItem>();
 
-  inputValue: number = this.item.quantity;
   constructor() {
-  }
-
-  ngOnInit(): void {
   }
 
   increaseQuantityOfProduct(){
     this.incItemQuantity.emit(this.item);
   }
 
-  increaseQuantityOfProductWithValue(){
-    this.item.quantity = this.inputValue;
-    this.gainItemQuantity.emit(this.item);
+  onInputChange(inputValue: number){
+    this.item.quantity = +inputValue;
+    this.addItemQuantity.emit(this.item);
   }
 
   decreaseQuantityOfProduct(){

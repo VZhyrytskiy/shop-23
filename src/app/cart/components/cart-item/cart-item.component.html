@@ -1,10 +1,8 @@
 <div class="cart-item">
   <p>{{item.name}}
-  <button class="increase" (click)="increaseQuantityOfProduct()">+</button>
-  <input 
-    
-    value=[(inputValue)]>
-  <button class="decrease" (click)="decreaseQuantityOfProduct()">-</button>
-  <button class="remove" (click)="removeFromCart()">X</button>
+  <button class = "increase" (click) = "increaseQuantityOfProduct()">+</button>
+  <input (change) = "onInputChange($event.target.value)" [value] = "item.quantity">
+  <button class = "decrease" (click) = "decreaseQuantityOfProduct()">-</button>
+  <button class = "remove" (click) = "removeFromCart()">X</button>
   </p>
 </div>

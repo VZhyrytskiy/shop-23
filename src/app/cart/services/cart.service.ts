@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Product } from 'src/app/products/models/product.model';
 import { Cart } from '../models/cart.model';
+import { CartItem } from '../models/cart-item.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,10 +24,18 @@ export class CartService{
   }
 
   getTotalSum(){
+    this.currentCart.totalSum = 0;
+    this.currentCart.cartProducts.forEach( item => {
+      this.currentCart.totalSum += item.quantity * item.price;
+    });
     return this.currentCart.totalSum;
   }
 
   getTotalQuantity(){
+    this.currentCart.totalQuantity = 0;
+    this.currentCart.cartProducts.forEach( item => {
+      this.currentCart.totalQuantity += item.quantity;
+    });
     return this.currentCart.totalQuantity;
   }
 
@@ -34,63 +43,49 @@ export class CartService{
     return this.currentCart;
   }
 
-  increaseQuantity(product: Product){
+  incrementQuantity(product: CartItem){
     const productIndex = this.getProductIndex(product);
+    console.log('cart-service', product.quantity, this.currentCart.cartProducts[productIndex].quantity);
     if (productIndex !== -1) {
       this.currentCart.cartProducts[productIndex].quantity ++;
     }
-    this.updateCartData();
   }
 
-  decreaseQuantity(product: Product){
+  addQuantity(product: CartItem){
+    const productIndex = this.getProductIndex(product);
+    console.log('cart-service', product.quantity, this.currentCart.cartProducts[productIndex].quantity);
+    if (productIndex !== -1) {
+      this.currentCart.cartProducts[productIndex].quantity = product.quantity;
+    }
+  }
+
+  decrementQuantity(product: CartItem){
     const productIndex = this.getProductIndex(product);
     if (productIndex !== -1) {
       if (this.currentCart.cartProducts[productIndex].quantity !== 0){
         this.currentCart.cartProducts[productIndex].quantity --;
       }
     }
-    this.updateCartData();
   }
 
-  addProductToCart(product: Product) {
+  addProductToCart(product: Product, quantityOfProducts?: number) {
     const productIndex = this.getProductIndex(product);
     if ( productIndex !== -1) {
-      this.currentCart.cartProducts[productIndex].quantity += 1;
+      this.currentCart.cartProducts[productIndex].quantity += quantityOfProducts ?? 1;
     } else {
-      this.currentCart.cartProducts.push({ ...product, quantity: 1 });
+      this.currentCart.cartProducts.push({ ...product, quantity: quantityOfProducts ?? 1 });
     }
-    this.updateCartData();
-  }
-
-  addProductsToCart(product: Product, quantity: number) {
-    const productIndex = this.getProductIndex(product);
-    if ( productIndex !== -1) {
-      this.currentCart.cartProducts[productIndex].quantity += quantity;
-    } else {
-      this.currentCart.cartProducts.push({ ...product, quantity });
-    }
-    this.updateCartData();
   }
 
   remoreProductFromCart(product: Product){
     // console.log(`Product ${product.name} was deleted from cart`);
     this.currentCart.cartProducts = this.currentCart.cartProducts.filter(item => item.id !== product.id);
-    this.updateCartData();
   }
 
   removeAllProducts(){
     this.currentCart.cartProducts = [];
     this.currentCart.totalSum = 0;
     this.currentCart.totalQuantity = 0;
-  }
-
-  private updateCartData(){
-    this.currentCart.totalQuantity = 0;
-    this.currentCart.totalSum = 0;
-    this.currentCart.cartProducts.forEach( item => {
-      this.currentCart.totalQuantity += item.quantity;
-      this.currentCart.totalSum += item.quantity * item.price;
-    });
   }
 
   private getProductIndex(product: Product): number{
