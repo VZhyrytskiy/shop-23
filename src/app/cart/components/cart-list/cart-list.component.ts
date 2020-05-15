@@ -15,11 +15,11 @@ export class CartListComponent implements OnInit {
     return this.cartService.getCartProducts();
   }
 
-  get TotalSum() : number {
+  get TotalSum(): number {
     return this.cartService.getTotalSum();
   }
 
-  get TotalQuantity() : number {
+  get TotalQuantity(): number {
     return this.cartService.getTotalQuantity();
   }
 

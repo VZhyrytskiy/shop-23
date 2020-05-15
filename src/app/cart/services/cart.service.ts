@@ -67,7 +67,7 @@ export class CartService{
     if ( productIndex !== -1) {
       this.currentCart.cartProducts[productIndex].quantity += quantity;
     } else {
-      this.currentCart.cartProducts.push({ ...product, quantity: quantity });
+      this.currentCart.cartProducts.push({ ...product, quantity });
     }
     this.updateCartData();
   }
@@ -89,7 +89,7 @@ export class CartService{
     this.currentCart.totalSum = 0;
     this.currentCart.cartProducts.forEach( item => {
       this.currentCart.totalQuantity += item.quantity;
-      this.currentCart.totalSum += item.quantity * item.price
+      this.currentCart.totalSum += item.quantity * item.price;
     });
   }
 
