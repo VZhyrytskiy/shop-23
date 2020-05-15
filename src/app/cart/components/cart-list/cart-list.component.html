@@ -1,15 +1,16 @@
 <div class="cart">
-    <h4>Cart</h4>
-    <div *ngIf="CartProducts.length; else emptyCart"> 
-        <div *ngFor="let product of CartProducts">
-            {{product.name}}
-            ({{product.quantity}})
-            <button class="increase" (click)="increaseQuantityOfProduct(product)">+</button>
-            <input #inputQuantity>
-            <button class="decrease" (click)="decreaseQuantityOfProduct(product)">-</button>
-            <button class="remove" (click)="removeFromCart(product)">X</button>
-        </div>
-    </div>
-    <div> Total price = {{TotalSum}} ({{TotalQuantity}} items) </div>
-    <ng-template #emptyCart>Cart is empty</ng-template>
+	<h4>Cart</h4>
+	<div *ngIf="CartProducts.length; else emptyCart"> 
+		<app-cart-item
+			*ngFor="let cartProduct of CartProducts"
+			[item] = "cartProduct"
+			(incItemQuantity) = "increaseQuantityOfProduct($event)"
+			(addItemQuantity) = "addQuantityOfProduct($event)"
+			(decItemQuantity) = "decreaseQuantityOfProduct($event)"
+			(removeItem) = "removeFromCart($event)"
+		></app-cart-item>
+		<div> Total price = {{TotalSum}} ({{TotalQuantity}} items) </div>
+	</div>
+	
+	<ng-template #emptyCart>Cart is empty</ng-template>
 </div>
