@@ -2,4 +2,9 @@
   h2 {
     margin-bottom: 24px;
   }
+
+  .content {
+    max-height: 560px;
+    overflow: auto;
+  }
 }

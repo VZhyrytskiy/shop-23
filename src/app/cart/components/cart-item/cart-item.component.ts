@@ -1,11 +1,11 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, HostBinding } from '@angular/core';
 
 import { CartItem } from '../../models/cart-item.model';
 
 @Component({
   selector: 'app-cart-item',
   templateUrl: './cart-item.component.html',
-  styleUrls: ['./cart-item.component.scss']
+  styleUrls: ['./cart-item.component.scss'],
 })
 export class CartItemComponent {
   @Input() cartItem: CartItem;
@@ -14,6 +14,8 @@ export class CartItemComponent {
   @Output() decreaseQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
   @Output() setQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
   @Output() removeFromCart: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+
+  @HostBinding('class') attrClass = 'cart-item';
 
   constructor() {}
 

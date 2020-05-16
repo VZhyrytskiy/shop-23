@@ -1,43 +1,18 @@
 import { Injectable } from '@angular/core';
 
-import { Categories } from '../enums/categories';
-import { MacDevices, IpadDevices, IphoneDevices } from '../enums/products';
+import { products } from './products';
 import { Product } from '../models/product.model';
-
-const products: Array<Product> = [
-  {
-    id: 1,
-    name: MacDevices.MackBookAir,
-    description: `Description for ${MacDevices.MackBookAir}`,
-    price: 700,
-    category: Categories.Mac,
-    isAvailable: true
-  },
-  {
-    id: 2,
-    name: IphoneDevices.Iphone11,
-    description: `Description for ${IphoneDevices.Iphone11}`,
-    price: 1000,
-    category: Categories.Iphone,
-    isAvailable: true
-  },
-  {
-    id: 3,
-    name: IpadDevices.IpadMini,
-    description: `Description for ${IpadDevices.IpadMini}`,
-    price: 800,
-    category: Categories.Ipad,
-    isAvailable: false
-  },
-];
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  products: Array<Product> = products;
+  products: Array<Product> = products.sort((a, b) => {
+    if (!a.isAvailable) return 1;
+    if (!b.isAvailable) return -1;
+  });
 
-  constructor() { }
+  constructor() {}
 
   getProducts() {
     return this.products;

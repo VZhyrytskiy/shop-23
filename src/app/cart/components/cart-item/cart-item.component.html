@@ -1,8 +1,7 @@
-<div class="cart-item">
-  <p>{{cartItem.name}}
-  <button class = "increase" (click) = "onIncreaseQuantity()">+</button>
-  <input type="number" (change) = "onSetQuantity($event.target.value)" [value] = "cartItem.quantity">
-  <button class = "decrease" (click) = "onDecreaseQuantity()">-</button>
-  <button class = "remove" (click) = "onRemoveFromCart()">X</button>
-  </p>
+<p>{{cartItem.name}}</p>
+<div class="quantity">
+  <input type="number" (change)="onSetQuantity($event.target.value)" [value]="cartItem.quantity">
+  <button class="increase" (click)="onIncreaseQuantity()">+</button>
+  <button class="decrease" (click)="onDecreaseQuantity()">-</button>
 </div>
+<button class="remove" (click)="onRemoveFromCart()">Remove from cart</button>

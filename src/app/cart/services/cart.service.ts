@@ -23,9 +23,7 @@ export class CartService {
   }
 
   getTotalSum() {
-    return this.currentCart.cartProducts.reduce((acc, curr) => {
-      return acc + curr.quantity * curr.price;
-    }, 0); 
+    return this.currentCart.cartProducts.reduce((acc, curr) => acc + curr.quantity * curr.price, 0); 
   }
 
   getTotalQuantity() {
