@@ -8,30 +8,29 @@ import { CartItem } from '../../models/cart-item.model';
   styleUrls: ['./cart-item.component.scss']
 })
 export class CartItemComponent {
-  @Input() item: CartItem;
+  @Input() cartItem: CartItem;
 
-  @Output() incItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
-  @Output() addItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
-  @Output() decItemQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
-  @Output() removeItem: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+  @Output() increaseQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+  @Output() decreaseQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+  @Output() setQuantity: EventEmitter<CartItem> = new EventEmitter<CartItem>();
+  @Output() removeFromCart: EventEmitter<CartItem> = new EventEmitter<CartItem>();
 
-  constructor() {
+  constructor() {}
+
+  onIncreaseQuantity(){
+    this.increaseQuantity.emit(this.cartItem);
   }
 
-  increaseQuantityOfProduct(){
-    this.incItemQuantity.emit(this.item);
+  onDecreaseQuantity(){
+    this.decreaseQuantity.emit(this.cartItem);
   }
 
-  onInputChange(inputValue: number){
-    this.item.quantity = +inputValue;
-    this.addItemQuantity.emit(this.item);
+  onSetQuantity(inputValue: number){
+    this.cartItem.quantity = +inputValue;
+    this.setQuantity.emit(this.cartItem);
   }
 
-  decreaseQuantityOfProduct(){
-    this.decItemQuantity.emit(this.item);
-  }
-
-  removeFromCart(){
-    this.removeItem.emit(this.item);
+  onRemoveFromCart(){
+    this.removeFromCart.emit(this.cartItem);
   }
 }

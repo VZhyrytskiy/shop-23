@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { CartService } from 'src/app/cart/services/cart.service';
 import { CartItem } from '../../models/cart-item.model';
@@ -8,41 +8,34 @@ import { CartItem } from '../../models/cart-item.model';
   templateUrl: './cart-list.component.html',
   styleUrls: ['./cart-list.component.scss']
 })
+export class CartListComponent {
+  constructor(private cartService: CartService) { }
 
-export class CartListComponent implements OnInit {
-
-  get CartProducts(): Array<CartItem> {
+  get cartProducts(): Array<CartItem> {
     return this.cartService.getCartProducts();
   }
 
-  get TotalSum(): number {
+  get totalSum(): number {
     return this.cartService.getTotalSum();
   }
 
-  get TotalQuantity(): number {
+  get totalQuantity(): number {
     return this.cartService.getTotalQuantity();
   }
 
-  constructor(private cartService: CartService) { }
-
-  ngOnInit(): void {
+  onIncreaseQuantity(product: CartItem){
+    this.cartService.increaseQuantity(product);
   }
 
-  increaseQuantityOfProduct(product: CartItem){
-    console.log('cart-list increase', product.quantity);
-    this.cartService.incrementQuantity(product);
+  onDecreaseQuantity(product: CartItem){
+    this.cartService.decreaseQuantity(product);
   }
 
-  addQuantityOfProduct(product: CartItem){
-    console.log('cart-list increase', product.quantity);
-    this.cartService.addQuantity(product);
+  onSetQuantity(product: CartItem){
+    this.cartService.setQuantity(product);
   }
 
-  decreaseQuantityOfProduct(product: CartItem){
-    this.cartService.decrementQuantity(product);
-  }
-
-  removeFromCart(product: CartItem) {
-    this.cartService.remoreProductFromCart(product);
+  onRemoveFromCart(product: CartItem) {
+    this.cartService.removeProduct(product);
   }
 }
