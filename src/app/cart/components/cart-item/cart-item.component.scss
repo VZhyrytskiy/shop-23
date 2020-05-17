@@ -1,47 +1,68 @@
-.cart-item{
-  p{
-    text-align: right;
+:host.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  &.hovered {
+    background: #165fa873;
   }
 
+  p {
+    text-align: right;
+    margin-right: 24px;
+  }
+
+  .quantity {
+    position: relative;
+    margin-right: 32px;
+
+    input {
+      width: 50px;
+      height: 36px;
+      padding-left: 8px;
+      border: 1px solid #5f5e5e;
+      border-radius: 3px;
+      outline: none;
+    }
+
+    button {
+      position: absolute;
+      right: -20px;
+      background-color: green;
+      padding: 0;
+      width: 16px;
+      height: 16px;
+      border: 1px solid green;
+
+
+      &:hover {
+        color: green;
+        background: #fff;
+      }
+    }
+
+    .increase {
+      top: 0;
+    }
+  
+    .decrease {
+      bottom: 0;
+    }
+  }
+
+  
+
   button.remove {
-    background-color: red;
-    padding: 0;
-    width: 32px;
-    height: 32px;
+    color: red;
+    background: #fff;
     border: 1px solid red;
-    border-radius: 10%;
+    border-radius: 3px;
 
     &:hover {
-      color: red;
-      background: #fff;
+      background: red;
+      color: #fff;
     }
   }
   
-  button.increase {
-    background-color: green;
-    padding: 0;
-    width: 32px;
-    height: 32px;
-    border: 1px solid green;
-    border-radius: 50%;
-
-    &:hover {
-      color: green;
-      background: #fff;
-    }
-  }
-
-  button.decrease {
-    background-color: brown;
-    padding: 0;
-    width: 32px;
-    height: 32px;
-    border: 1px solid brown;
-    border-radius: 50%;
-
-    &:hover {
-      color: brown;
-      background: #fff;
-    }
-  }
+  
 }

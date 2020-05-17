@@ -14,9 +14,10 @@ import { CartModule } from './cart/cart.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ProductsModule,
+
     SharedModule,
-    CartModule
+    ProductsModule,
+    CartModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
