@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject, Optional } from '@angular/core';
 import { ConstantServiceToken, ConstantService } from '../core';
 
-const appInfo = { App: "Devices Shop", Ver: "1.0" };
+const appInfo = { App: 'Devices Shop', Ver: '1.0' };
 
 @Component({
   selector: 'app-about',
