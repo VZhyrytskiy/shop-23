@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { CartListComponent } from './components/cart-list/cart-list.component';
-import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { CartListComponent, CartItemComponent } from './components/index';
 
 @NgModule({
   imports: [CommonModule],
@@ -10,9 +9,6 @@ import { CartItemComponent } from './components/cart-item/cart-item.component';
     CartListComponent,
     CartItemComponent
   ],
-  providers: [],
-  exports: [
-    CartListComponent
-  ]
+  exports: [CartListComponent]
 })
 export class CartModule {}
