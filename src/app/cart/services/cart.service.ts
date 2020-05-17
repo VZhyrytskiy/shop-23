@@ -23,11 +23,11 @@ export class CartService {
   }
 
   getTotalSum() {
-    return this.currentCart.cartProducts.reduce((acc, curr) => acc + curr.quantity * curr.price, 0); 
+    return this.currentCart.cartProducts.reduce((acc, curr) => acc + curr.quantity * curr.price, 0);
   }
 
   getTotalQuantity() {
-    return this.currentCart.cartProducts.reduce((acc, curr) => acc + curr.quantity, 0); 
+    return this.currentCart.cartProducts.reduce((acc, curr) => acc + curr.quantity, 0);
   }
 
   increaseQuantity(product: CartItem) {

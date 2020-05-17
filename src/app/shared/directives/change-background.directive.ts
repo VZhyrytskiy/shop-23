@@ -1,19 +1,19 @@
 import { Directive, HostBinding, HostListener } from '@angular/core';
 
 @Directive({
-  selector: '[changeBgOnHover]'
+  selector: '[appChangeBgOnHover]'
 })
-export class ChangeHostBackground {
+export class ChangeBackgroundDirective {
   @HostBinding('class')
-  attrClass = ''
+  attrClass = '';
 
   @HostListener('mouseenter', ['$event'])
   enter(event: Event) {
-    this.attrClass = 'hovered'
+    this.attrClass = 'hovered';
   }
 
   @HostListener('mouseleave', ['$event'])
   leave(event: Event) {
-    this.attrClass = ''
+    this.attrClass = '';
   }
 }

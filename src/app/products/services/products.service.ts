@@ -8,8 +8,8 @@ import { Product } from '../models/product.model';
 })
 export class ProductsService {
   products: Array<Product> = products.sort((a, b) => {
-    if (!a.isAvailable) return 1;
-    if (!b.isAvailable) return -1;
+    if (!a.isAvailable) { return 1; }
+    if (!b.isAvailable) { return -1; }
   });
 
   constructor() {}
