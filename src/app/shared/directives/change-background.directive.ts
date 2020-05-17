@@ -3,7 +3,7 @@ import { Directive, HostBinding, HostListener } from '@angular/core';
 @Directive({
   selector: '[changeBgOnHover]'
 })
-export class ChangeHostBackground {
+export class ChangeBackgroundDirective {
   @HostBinding('class')
   attrClass = ''
 

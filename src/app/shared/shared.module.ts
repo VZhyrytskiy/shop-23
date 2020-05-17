@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ChangeHostBackground } from './directives/change-host-background';
+import { ChangeBackgroundDirective, RandomColorDirective } from './directives';
+
+const directives = [ChangeBackgroundDirective, RandomColorDirective];
 
 @NgModule({
   imports: [CommonModule],
-  declarations: [ChangeHostBackground],
-  exports: [ChangeHostBackground]
+  declarations: [...directives],
+  exports: [...directives]
 })
 export class SharedModule {}
