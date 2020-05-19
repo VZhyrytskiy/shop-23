@@ -2,7 +2,7 @@
 	<h4>Cart</h4>
 	<div *ngIf="cartProducts.length; else emptyCart"> 
 		<app-cart-item
-			*ngFor="let product of cartProducts"
+			*ngFor="let product of (cartProducts | orderBy : 'name' : 'down')"
 			[cartItem] = "product"
 			(increaseQuantity) = "onIncreaseQuantity($event)"
 			(decreaseQuantity) = "onDecreaseQuantity($event)"
