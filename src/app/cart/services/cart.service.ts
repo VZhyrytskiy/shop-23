@@ -8,15 +8,11 @@ import { CartItem } from '../models/cart-item.model';
   providedIn: 'root'
 })
 export class CartService {
-  private currentCart: Cart;
-
-  constructor() {
-    this.currentCart = {
-      cartProducts: [],
-      totalSum: 0,
-      totalQuantity: 0
-    };
-   }
+  private currentCart: Cart = {
+    cartProducts: [],
+    totalSum: 0,
+    totalQuantity: 0
+  };
 
   getCartProducts() {
     return this.currentCart.cartProducts;

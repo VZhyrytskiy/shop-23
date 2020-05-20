@@ -2,7 +2,7 @@
   <h2 randomColor>Products</h2>
   <div class="content">
     <app-product
-      *ngFor="let product of products"
+      *ngFor="let product of products | async"
       [product]="product"
       (buy)="onBuy($event)"
     >
