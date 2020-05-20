@@ -28,7 +28,7 @@ export class CartItemComponent {
   }
 
   onSetQuantity(inputValue: number){
-    this.cartItem.quantity = +inputValue;
+    this.cartItem.quantity = +inputValue; // небезопасная операция, данные приходят через инпут и тут вдруг они меняются
     this.setQuantity.emit(this.cartItem);
   }
 
