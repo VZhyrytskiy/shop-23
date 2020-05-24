@@ -4,7 +4,8 @@ import {
   ConstantService,
   GeneratorService,
   RandomString5,
-  RandomStringNFactory
+  RandomStringNFactory,
+  LocalStorageService
 } from '../core';
 
 const appInfo = { App: 'Devices Shop', Ver: '1.0' };
@@ -16,7 +17,8 @@ const appInfo = { App: 'Devices Shop', Ver: '1.0' };
   providers: [
     GeneratorService,
     { provide: ConstantServiceToken, useValue: appInfo },
-    { provide: RandomString5, useFactory: RandomStringNFactory(5), deps: [GeneratorService] }
+    { provide: RandomString5, useFactory: RandomStringNFactory(5), deps: [GeneratorService] },
+    { provide: Storage, useClass: LocalStorageService }
   ]
 })
 export class AboutComponent implements OnInit {
