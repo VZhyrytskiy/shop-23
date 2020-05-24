@@ -2,11 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable()
 export class GeneratorService {
-  randomString: string;
-
-  constructor() {
-    this.randomString = '';
-  }
+  constructor() { }
 
   private lowerCaseLettersCharCodes: any = {
     [Symbol.iterator]: this.generateIterator(97, 122)
@@ -21,9 +17,9 @@ export class GeneratorService {
   };
 
   private charCodesArr = [
-    Array.from(this.lowerCaseLettersCharCodes),
-    Array.from(this.upperCaseLettersCharCodes),
-    Array.from(this.digitsCharCodes)
+    ...Array.from(this.lowerCaseLettersCharCodes),
+    ...Array.from(this.upperCaseLettersCharCodes),
+    ...Array.from(this.digitsCharCodes)
   ];
 
   private generateIterator(from, to) {
@@ -47,13 +43,16 @@ export class GeneratorService {
   }
 
   getRandomString(length: number) {
-    this.randomString = '';
+    let randomString = '';
 
     for ( let i = 0; i < length; i++ ) {
-      const randomIndex = (Math.floor(Math.random() * this.charCodesArr.length));
-      const randomCharacter = String.fromCharCode(randomIndex);
+      const randomArrIndex: number = (Math.floor(Math.random() * this.charCodesArr.length));
+      const randomCharCode: any = this.charCodesArr[randomArrIndex];
+      const randomCharacter = String.fromCharCode(randomCharCode);
 
-      this.randomString += randomCharacter;
+      randomString += randomCharacter;
     }
+
+    return randomString;
  }
 }
