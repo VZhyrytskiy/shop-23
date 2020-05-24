@@ -1,3 +1,8 @@
 .cart {
   text-align: right;
+
+  * select:not(:last-of-type) {
+    margin-right: 16px;
+    margin-bottom: 16px;
+  }
 }

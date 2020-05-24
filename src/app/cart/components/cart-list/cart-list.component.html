@@ -1,8 +1,19 @@
 <div class="cart">
-	<h4>Cart</h4>
+	<h2>Cart</h2>
+	<div class="filters">
+		<h3>Filters</h3>
+		<select #fieldFilter name="field">
+			<option selected="true" disabled="disabled">Filter by field</option>
+			<option *ngFor="let filter of fieldFilters" value={{filter}}>{{filter}}</option>
+		</select>
+		<select placeholder="dwdwd" #orderFilter name="order">
+			<option selected="true" disabled="disabled">Filter by order</option>
+			<option *ngFor="let filter of orderFilters" value={{filter}}>{{filter}}</option>
+		</select>
+	</div>
 	<div *ngIf="cartProducts.length; else emptyCart"> 
 		<app-cart-item
-			*ngFor="let product of cartProducts"
+			*ngFor="let product of (cartProducts | orderBy : fieldFilter.value : orderFilter.value)"
 			[cartItem] = "product"
 			(increaseQuantity) = "onIncreaseQuantity($event)"
 			(decreaseQuantity) = "onDecreaseQuantity($event)"
