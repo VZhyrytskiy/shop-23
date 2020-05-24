@@ -51,7 +51,7 @@ export const products = [
     isAvailable: true
   },
   {
-    id: 6,
+    id: 7,
     name: IpadDevices.Ipad,
     description: `Description for ${IpadDevices.Ipad}`,
     price: 900,

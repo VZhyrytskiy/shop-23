@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 
 import { CartService } from 'src/app/cart/services/cart.service';
-import { CartItem } from '../../models/cart-item.model';
+import { CartItem } from '../../models';
+import { FieldsFilters, OrderFilters } from '../../enums';
 
 @Component({
   selector: 'app-cart-list',
@@ -9,7 +10,13 @@ import { CartItem } from '../../models/cart-item.model';
   styleUrls: ['./cart-list.component.scss']
 })
 export class CartListComponent {
-  constructor(private cartService: CartService) { }
+  fieldFilters: any;
+  orderFilters: any;
+
+  constructor(private cartService: CartService) { 
+    this.orderFilters = Object.values(OrderFilters);
+    this.fieldFilters = Object.values(FieldsFilters);
+  }
 
   get cartProducts(): Array<CartItem> {
     return this.cartService.getCartProducts();

@@ -19,7 +19,7 @@ import { AboutComponent } from './about/about.component';
 
     SharedModule,
     ProductsModule,
-    CartModule,
+    CartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

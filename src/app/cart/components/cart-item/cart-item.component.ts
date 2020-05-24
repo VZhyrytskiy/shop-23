@@ -28,7 +28,7 @@ export class CartItemComponent {
   }
 
   onSetQuantity(inputValue: number){
-    this.cartItem.quantity = +inputValue;
+    this.cartItem.quantity = inputValue;
     this.setQuantity.emit(this.cartItem);
   }
 

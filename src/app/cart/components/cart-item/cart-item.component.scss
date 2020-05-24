@@ -19,10 +19,6 @@
     input {
       width: 50px;
       height: 36px;
-      padding-left: 8px;
-      border: 1px solid #5f5e5e;
-      border-radius: 3px;
-      outline: none;
     }
 
     button {
@@ -49,8 +45,6 @@
       bottom: 0;
     }
   }
-
-  
 
   button.remove {
     color: red;

@@ -23,12 +23,14 @@ h2{
   font-weight: 500;
   line-height: 36px;
   text-transform: uppercase;
+  margin-bottom: 24px;
 }
 
 h3{
   font-size: 18px;
   font-weight: 700;
   text-transform: uppercase;
+  margin-bottom: 16px;
 }
 
 p{
@@ -63,3 +65,12 @@ button:not([disabled]):hover {
 }
 
 input, select, button, textarea{outline: none;}
+
+input, select {
+  padding-left: 8px;
+  border: 1px solid #5f5e5e;
+  border-radius: 3px;
+  outline: none;
+
+  height: 36px;
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable, Observer, of } from 'rxjs';
 
 import { Product } from 'src/app/products/models/product.model';
 import { ProductsService } from 'src/app/products/services/products.service';
@@ -10,7 +11,7 @@ import { CartService } from 'src/app/cart/services/cart.service';
   styleUrls: ['./products-list.component.scss']
 })
 export class ProductsListComponent implements OnInit {
-  products: Array<Product>;
+  products: Observable<Array<Product>>;
 
   constructor(
     private productsService: ProductsService,

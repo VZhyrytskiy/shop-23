@@ -1,0 +1,6 @@
+========================== TASK 4 ==========================
+
+1. Set products-list as Observable;
+2. Implemented orderBy pipe, applied it to cart-list;
+3. Adjusted modules imports/exports;
+4. Applied changes according to task2-comments;
