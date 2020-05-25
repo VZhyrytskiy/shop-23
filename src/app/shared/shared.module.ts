@@ -14,7 +14,7 @@ const pipes = [OrderByPipe];
   exports: [
     CommonModule,
     FormsModule,
-    ...directives, 
+    ...directives,
     ...pipes
   ]
 })

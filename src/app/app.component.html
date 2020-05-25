@@ -1,4 +1,27 @@
-<h1 #appTitle></h1>
-<app-cart-list></app-cart-list>
-<app-products-list></app-products-list>
-<app-about></app-about>
+<header>
+  <ul class="nav navbar-nav">
+    <li routerLinkActive="active">
+      <a routerLink="/admin">Admin</a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/products">Products</a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/orders">Orders</a>
+    </li>
+
+    <li routerLinkActive="active">
+      <a routerLink="/cart">Cart</a>
+    </li>
+  </ul>
+</header>
+<div class="content">
+  <h1 #appTitle></h1>
+  <!-- <app-cart-list></app-cart-list>
+  <app-products-list></app-products-list>
+  <app-about></app-about>
+  <router-outlet></router-outlet> -->
+</div>
+<footer></footer>

@@ -13,7 +13,7 @@ export class CartListComponent {
   fieldFilters: any;
   orderFilters: any;
 
-  constructor(private cartService: CartService) { 
+  constructor(private cartService: CartService) {
     this.orderFilters = Object.values(OrderFilters);
     this.fieldFilters = Object.values(FieldsFilters);
   }
