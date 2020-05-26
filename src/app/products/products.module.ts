@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import { ProductsComponent } from './products.component'
+import { ProductsComponent } from './products.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProductComponent, ProductsListComponent } from './components';
 import { ProductsRoutingModule } from './products-routing.module';
