@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ProductsModule } from './products/products.module';
+// import { ProductsModule } from './products/products.module';
 import { CartModule } from './cart/cart.module';
 import { AboutComponent } from './about/about.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -16,7 +16,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   ],
   imports: [
     BrowserModule,
-    ProductsModule,
+    // ProductsModule,
     CartModule,
     AppRoutingModule
   ],
