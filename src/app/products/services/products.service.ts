@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, Observer, of } from 'rxjs';
+
+import { Observable, of } from 'rxjs';
+import { filter, map } from 'rxjs/operators';
 
 import { products } from './products';
 import { Product } from '../models/product.model';
@@ -19,5 +21,11 @@ export class ProductsService {
 
   getProducts(): Observable<Array<Product>> {
     return this.products;
+  }
+
+  getProduct(id: number): Observable<Product> {
+    return this.products.pipe(
+      map(products => products.find((product: Product) => product.id === id))
+    );
   }
 }
