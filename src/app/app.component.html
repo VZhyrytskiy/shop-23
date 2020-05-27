@@ -13,15 +13,12 @@
     </li>
 
     <li routerLinkActive="active">
-      <a routerLink="/cart">Cart</a>
+      <a routerLink="/cart">Cart {{productsInCart ? productsInCart : ''}}</a>
     </li>
   </ul>
 </header>
 <div class="content">
   <h1 #appTitle></h1>
-  <!-- <app-cart-list></app-cart-list>
-  <app-products-list></app-products-list>
-  <app-about></app-about> -->
   <router-outlet></router-outlet>
 </div>
 <footer></footer>
