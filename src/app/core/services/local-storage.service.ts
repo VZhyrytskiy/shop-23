@@ -32,4 +32,9 @@ export class LocalStorageService implements Storage {
 export abstract class LocalStorageToken {
   clear: () => void;
   getItem: (key: string) => string;
+  key: (index: number) => string;
+  removeItem: (key: number) => void;
+  setItem: (key: string, value: string) => void;
 }
+
+// export const StorageToken = new InjectionToken<LocalStorageService>('Storage Token');
