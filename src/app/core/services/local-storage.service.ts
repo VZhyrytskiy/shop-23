@@ -24,6 +24,7 @@ export class LocalStorageService implements Storage {
     this.storage.removeItem(key);
   }
 
+  // Тут можно расширить тип и предусмотреть хранение объектов
   setItem(key: string, value: string): void {
     this.storage.setItem(key, value);
   }

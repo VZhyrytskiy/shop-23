@@ -46,8 +46,8 @@ export class AboutComponent implements OnInit {
     console.log('storage get', this.storage.getItem('someKey'));
     ////////////
     this.configService.setConfig(configInfo);
-    let currentConfig = this.configService.getConfig();
-    for(let key in currentConfig){
+    const currentConfig = this.configService.getConfig();
+    for (const key in currentConfig){
       console.log(currentConfig[key]);
     }
   }

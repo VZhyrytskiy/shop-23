@@ -3,15 +3,15 @@ import { Configuration } from '../models/config.model';
 
 @Injectable()
 export class ConfigOptionsService {
-  private config: Configuration ={
+  private config: Configuration = {
     id: 0
   };
 
   constructor(){}
 
   setConfig(inputConfig: Configuration){
-    for(let key in inputConfig){
-      this.config[key] = inputConfig[key]
+    for (const key in inputConfig){
+      this.config[key] = inputConfig[key];
     }
   }
 
